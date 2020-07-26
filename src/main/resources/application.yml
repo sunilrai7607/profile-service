@@ -1,0 +1,38 @@
+spring:
+  h2:
+    console:
+      path: /h2-console
+      settings:
+        web-allow-others: true
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    schema: classpath:/scripts/schema.sql
+    data: classpath:/scripts/data.sql
+
+# Oauth2 resource server configuration
+security:
+  oauth2:
+    resource:
+      id: USER_CLIENT_RESOURCE
+      token-info-uri: http://localhost:9090/oauth/check_token
+    client:
+      client-id: c825bfbd-c202-40a9-8fcd-d9386195687a
+      client-secret: admin
+      access-token-uri: http://localhost:9090/oauth/token
+      user-authorization-uri: http://localhost:9090/oauth/authorize
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
