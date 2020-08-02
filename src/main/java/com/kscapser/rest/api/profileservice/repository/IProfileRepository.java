@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface IProfileRepository extends JpaRepository<CustomProfile, String> {
 
     Optional<CustomProfile> findByLoginUuid(final String profileId);
+
+    Optional<CustomProfile> findByLoginUsernameAndLoginPassword(final String userId, final String password);
 }

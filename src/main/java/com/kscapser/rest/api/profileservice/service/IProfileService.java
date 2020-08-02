@@ -1,7 +1,10 @@
 package com.kscapser.rest.api.profileservice.service;
 
+import com.kscapser.rest.api.profileservice.model.request.LoginRequest;
+import com.kscapser.rest.api.profileservice.model.response.ProfileResponse;
 import com.kscapser.rest.api.profileservice.repository.domain.CustomProfile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public interface IProfileService {
@@ -19,4 +22,13 @@ public interface IProfileService {
      * @return
      */
     CustomProfile findByProfileId(String profileId);
+
+    /**
+     * Method to sign user
+     *
+     * @param loginRequest
+     * @param response
+     * @return
+     */
+    ProfileResponse userSignIn(LoginRequest loginRequest, HttpServletResponse response);
 }
