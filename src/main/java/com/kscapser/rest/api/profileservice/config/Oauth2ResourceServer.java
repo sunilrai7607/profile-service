@@ -22,7 +22,7 @@ public class Oauth2ResourceServer extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/actuator/**","/rest/api/v1/profiles/signIn/**").permitAll().anyRequest().authenticated();
+                .antMatchers("/actuator/**", "/rest/api/v1/profiles/signIn/**").permitAll().anyRequest().authenticated();
     }
 
 

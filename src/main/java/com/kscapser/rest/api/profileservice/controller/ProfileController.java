@@ -6,7 +6,6 @@ import com.kscapser.rest.api.profileservice.repository.domain.CustomProfile;
 import com.kscapser.rest.api.profileservice.service.impl.ProfileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +38,7 @@ public class ProfileController {
 
     @PostMapping(value = "/signIn", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ProfileResponse> userSign(@RequestBody LoginRequest loginRequest, HttpServletResponse response) {
-        log.info("LoginRequest : {} ",loginRequest);
+        log.info("LoginRequest : {} ", loginRequest);
         return ResponseEntity.ok(profileService.userSignIn(loginRequest, response));
     }
 

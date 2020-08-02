@@ -78,7 +78,7 @@ public class ProfileService implements IProfileService {
         StringBuffer sb = new StringBuffer(tokenResponse.getTokenType());
         sb.append(" ");
         sb.append(tokenResponse.getAccessToken());
-        response.addHeader("x-token",sb.toString());
+        response.addHeader("x-token", sb.toString());
         ProfileResponse profileResponse = ProfileMapper.INSTANCE.profileMapper(customerProfile);
         profileResponse.setToken(sb.toString());
         return profileResponse;
